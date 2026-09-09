@@ -20,6 +20,7 @@ Mostly for fun/curiosity/coding practice
 - A `doc/` for non-code documents that can be read to help other people or myself approach the whole project. In that folder :
   - `journal.md` : a simple journal to keep a log of activity
   - `directions.md` : serves as directions for the project (ideas to explore, notes for future reference, maybe also a roadmap of sorts ?)
+  - `specs.md` : specifications for classes/other things in code
 - `README.md` : file containing an introduction to the project with some context, explanation of the purpose, etc.
 - `.cland` and `.clang-format` : mostly for code formatting and linting
 - `CMakeLists.txt` : CMake file for building

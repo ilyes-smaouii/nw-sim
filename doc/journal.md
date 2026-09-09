@@ -65,3 +65,7 @@ Some thoughts/leads to expand on :
 - if I do make some sort of `traits`-like framework, maybe it should be mostly used by the Handler/Environment; seems like that's where the responsability for that functionality should be. At least regarding checks. The Protocol Entities should still be provide information on their respective traits. One way to do that would be to use templates, as with C++ `traits`.
   - Small issue if I want to make it a compile-time thing --> at some point, I'd like to be able to use config files to populate Environments with Protocol Entities, which means some information will only be known at runtime. This could be handled with if or switch blocks, but I don't know, that doesn't seem ideal. Maybe there's just no other way 🤷.
 Anyway, I'll continue this later.
+
+# 2026-09-09
+Back on this project after a long break. I think I've spent too long trying to properly design the architecture and a good frame of work for this project, so I'll try to read my notes back to avoid missing on important stuff, and I'll try to actually write some code, so I can finally start iterating; if there are things I wanna change later on, and I have to rewrite things from scratch, I'll just rewrite them.
+I've written some basic specifications to guide myself, I can improve them later.

@@ -3,6 +3,7 @@
   - Scheduler ?
   - Event format and functionality to be specified
   - ?
+  - Messaging protocol, adaptability to each protocol/Entity
 - [TBC]
 
 # Personal notes
@@ -17,6 +18,10 @@ first.
 - License ?
 - entity_traits<> struct ?
 - Dynamic traits ? (e.g. use an MTU that can change during runtime) --> for max code flexibility, need to use as many functions as possible (make it static/constexpr if needed)
+- IP Entity wants to know its neighbors/network --> either contacts other entities through lower layers (ARP/other), or directly asks the handler
+  - Maybe start out w/ predefined defaults, and later add flexibility ?
+- Common API for all Protocol Entities, s.a. `handleMessage()` or something ? Or maybe make it all go through Handler, and Handler then dispatches to corresponding Protocol Entities ?
+- \[\]
 
 # Ideas/things to explore
 - Impact of physical medium/other layers on applications
