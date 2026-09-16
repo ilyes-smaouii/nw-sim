@@ -69,3 +69,8 @@ Anyway, I'll continue this later.
 # 2026-09-09
 Back on this project after a long break. I think I've spent too long trying to properly design the architecture and a good frame of work for this project, so I'll try to read my notes back to avoid missing on important stuff, and I'll try to actually write some code, so I can finally start iterating; if there are things I wanna change later on, and I have to rewrite things from scratch, I'll just rewrite them.
 I've written some basic specifications to guide myself, I can improve them later.
+
+# 2026-09-16
+Adding a `roadmap.md` file to the `/doc` directory.
+I think I got too held up on memory management and performance issues last time, I'll try to build some working features first, and I can improve those aspects later.
+Update : wrote some code in header files, so v0.1 - what I decided to call this early proof of concept-type version - is starting to take form.

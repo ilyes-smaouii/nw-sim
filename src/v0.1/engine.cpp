@@ -1,11 +1,11 @@
-#include "scheduling.hpp"
+#include "engine.hpp"
 #include <iostream>
 
 namespace common_ns {
 
 Engine::Engine() : m_event_queue() {}
 
-void Engine::run() {
+return_t Engine::run() {
   while (true) {
     if (!m_event_queue.isEmpty()) {
       Event &event = m_event_queue.pop();

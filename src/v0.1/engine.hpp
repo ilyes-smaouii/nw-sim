@@ -1,25 +1,12 @@
 #pragma once
 
-#include "messages.hpp"
+#include "common.hpp"
+// #include "messages.hpp"
+#include "events.hpp"
 
 #include <array>
-#include <memory>
 
 namespace common_ns {
-
-class Event {
-
-public:
-  using msg_t = Message;
-  using entity_id_t = std::uint32_t;
-
-  entity_id_t const &getEntityId() const;
-  msg_t const &getMessage() const;
-
-protected:
-  entity_id_t m_entity_id{};
-  std::shared_ptr<msg_t> m_message{};
-};
 
 template <std::size_t MAX_QUEUE_SIZE> class EventQueue {
 public:
@@ -46,7 +33,9 @@ public:
 
   Engine();
 
-  void run();
+  return_t run();
+  return_t addEvent(const Event &event);
+  return_t clearQueue();
 
 protected:
   queue_t m_event_queue{};
