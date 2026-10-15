@@ -1,5 +1,11 @@
 #pragma once
 
+#include <cstddef>
+#include <cstdint>
+#include <memory>
+#include <unordered_map>
+#include <utility>
+
 #include "common.hpp"
 #include "events.hpp"
 #include "messages.hpp"
@@ -7,21 +13,22 @@
 
 // #include "engine.hpp"
 
-#include <cstdint>
-#include <memory>
-#include <unordered_map>
-#include <utility>
-
 namespace common_ns {
 
+constexpr std::size_t MAX_DL_PACKET_SIZE{64};
+
+// Forward declaration ?
+// TO-DO : check whether this should be here/what that's about
 class Engine;
 
+// TO-DO : desc + implementation
 class Handler {
 #define APPLY_ON_ALL_HANDLED_ENTITY_TYPES(X)                                   \
-  X(1, protocols::ProtocolA) X(2, protocols::ProtocolB)
+  X(1, protocols::NwProtocol) X(2, protocols::DLProtocol<MAX_DL_PACKET_SIZE>)
 public:
-#define X(entity_type, protocol_t) using protocol_t_##entity_type = protocol_t;
-  APPLY_ON_ALL_HANDLED_ENTITY_TYPES(X)
+#define DEF_PROTOCOL_TYPE(entity_type, protocol_t)                             \
+  using protocol_t_##entity_type = protocol_t;
+  APPLY_ON_ALL_HANDLED_ENTITY_TYPES(DEF_PROTOCOL_TYPE)
 #undef X
   using event_t = Event;
 
@@ -32,20 +39,25 @@ public:
 
   Handler();
 
-  std::pair<return_t, entity_id_t> addEntity(const protocol_t_1 &entity);
+  std::pair<le_return_t, entity_id_t>
+  addEntity(const protocol_t_1 &entity); // TO-DO : implement
+  /*
+    TO-DO : finish comment
+   */
   template <typename... Args>
-  std::pair<return_t, entity_id_t> emplaceEntity(Args &&...args) {
+  std::pair<le_return_t, entity_id_t> emplaceEntity(Args &&...args) {
     // TO-DO : implement
   }
-  return_t removeEntity(entity_id_t entity_id);
+  le_return_t removeEntity(entity_id_t entity_id); // TO-DO : implement
   /*
   Handle Message from Entity
    */
-  return_t handleMessage(entity_id_t entity_id, const Message &msg);
+  le_return_t handleMessage(entity_id_t entity_id,
+                            const Message &msg); // TO-DO : implement
   /*
   Handle Event from Engine/Scheduler
    */
-  return_t handleEvent(const event_t &event);
+  le_return_t handleEvent(const event_t &event); // TO-DO : implement
 
 protected:
   std::unordered_map<entity_id_t, EntityInfo> m_entities{};

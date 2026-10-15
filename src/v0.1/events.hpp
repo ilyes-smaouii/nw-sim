@@ -7,6 +7,7 @@
 
 namespace common_ns {
 
+// TO-DO : desc + implementation
 class Event {
 
 public:
