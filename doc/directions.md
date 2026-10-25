@@ -39,3 +39,7 @@ first.
   - implies existence of addEntity() method for Handler/Environment
   - Requires implementation of custom memory allocation ?
 - ?
+
+# Ideas/things to explore for v0.1
+- Add TTL ?
+- Change gateway behavior for NwProtocol, to get closer to real networks, and allow for multiple hops
