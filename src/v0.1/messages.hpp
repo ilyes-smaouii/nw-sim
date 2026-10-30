@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstddef>
+#include <stdexcept>
 #include <string>
 #include <type_traits>
 #include <vector>
@@ -49,6 +50,16 @@ public:
   le_return_t assign(const byte_t *data,
                      std::size_t size); // TO-DO : implement
 
+  template <typename T> T const &getDataAs(std::size_t offset) const {
+    auto _size = size();
+    if (offset >= _size) [[unlikely]] {
+      throw std::runtime_error("Message::getDataAs() error : offset (" +
+                               std::to_string(offset) + ") >= size (" +
+                               std::to_string(_size) + ") !");
+    }
+    return *reinterpret_cast<T *>(m_payload.data() + offset);
+  }
+
   // TO-DO : check proper overloading for appendData() (mixing templates and
   // non-templates --> ?)
 
@@ -56,7 +67,7 @@ public:
     Appends data to the end of the payload
   */
   le_return_t appendData(const byte_t *data, std::size_t size);
-  le_return_t appendMessageData(const Message &msg);
+  le_return_t appendDataFromMsg(const Message &msg);
 
   /*
     Appends data to the end of the payload

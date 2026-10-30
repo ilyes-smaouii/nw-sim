@@ -27,7 +27,7 @@ le_return_t Message::appendData(const byte_t *data, std::size_t size) {
   return RETURN_CODE::SUCCESS;
 }
 
-le_return_t Message::appendMessageData(const Message &msg) {
+le_return_t Message::appendDataFromMsg(const Message &msg) {
   m_payload.insert(m_payload.end(), msg.data(), msg.data() + msg.size());
   return RETURN_CODE::SUCCESS;
 }

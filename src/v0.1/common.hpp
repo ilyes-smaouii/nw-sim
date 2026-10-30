@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstddef>
 #include <cstdint>
 
 namespace common_ns {
@@ -12,5 +13,7 @@ enum RETURN_CODE : le_return_t {
   SUCCESS = 0,
   FAILURE = -1,
 };
+
+constexpr std::size_t MAX_EVENT_QUEUE_SIZE{1024};
 
 } // namespace common_ns

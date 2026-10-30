@@ -74,3 +74,9 @@ I've written some basic specifications to guide myself, I can improve them later
 Adding a `roadmap.md` file to the `/doc` directory.
 I think I got too held up on memory management and performance issues last time, I'll try to build some working features first, and I can improve those aspects later.
 Update : wrote some code in header files, so v0.1 - what I decided to call this early proof of concept-type version - is starting to take form.
+
+# 2026-10-30
+Started writing some code, and the more progress I make, the more unforeseen issues I run into. \
+Turns out even v0.1 is not as straightforward as I thought. Might need to take a step back and go back to abstract design/architecture before I go back to writing code. \
+Anyway, at least it's starting to take some form, though there's probably still a long way before I get to a working v0.1 prototype. \
+It's very messy and highly unefficient in how it handles most operations that pass data around, but that's kind of the point of v0.1 : start with a bad but working prototype, which can serve as a starting point for better versions.
